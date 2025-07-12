@@ -2,13 +2,19 @@ import express from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
+import path from "path";
+import { fileURLToPath } from "url";
 import { dbConfig } from "./config/db.js";
 import createMySQLStore from "express-mysql-session";
+
 let app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.urlencoded({ extended: true })); // For form data
 app.use(express.json());
-app.use("/", express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+
 let MySQLStore = createMySQLStore(session);
 
 app.set("view engine", "ejs");
@@ -22,6 +28,8 @@ app.use(
         saveUninitialized: false,
         store: sessionStore,
         cookie: {
+            secure: true, // only over HTTPS
+            sameSite: "strict",
             maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
         },
     })
@@ -45,6 +53,11 @@ app.use("/register", registerRouter);
 app.use("/logout", logoutRouter);
 app.use("/todos", todosRouter);
 
-app.listen(3500, () => {
-    console.log("Server running on PORT 3500");
+//regex fallback for unmatched routes
+app.get(/^\/.*/, (req, res) => {
+    res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+});
+
+app.listen(3000, () => {
+    console.log("Server running on PORT 3000");
 });
