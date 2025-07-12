@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To-do App</title>
+        <link rel="stylesheet" href="todo-style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>To-do App</h1>
+            <div class="logout">
+                <a href="/logout">Log Out</a>
+                
+            </div>
+        </header>
+        <section class="section-center">
+            <div class="alert"></div>
+            <h1>To-do</h1>
+            <form>
+                <div class="input-controls">
+                    <input
+                        type="text"
+                        class="grocery"
+                        placeholder="e.g. eat apples"
+                    />
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <div class="grocery-container">
+                <div class="grocery-list"></div>
+
+                <button class="clear-items">Clear Items</button>
+            </div>
+        </section>
+        <script src="scripts/todo-script.js"></script>
+    </body>
+</html>

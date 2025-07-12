@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+ font-family: sans-serif ;
+}
+
+header{
+    height: 80px;
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1{
+    font-size:1.7rem ;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+header a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+}
+header a:hover{
+    color: orange;
+}
+
+.container{
+    display: flex; 
+     justify-content: center; 
+    background-color: white;
+    margin-top: 20px;
+    width: 100%;
+}
+
+form{
+    width: 390px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.container form  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 5px;
+    transition: border-color 0.3s;
+    border: 2px solid; 
+    border-radius: 3px;
+}
+.form-group{
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group small{
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    font-size: 10px;
+    color: rgb(250, 64, 64);
+    visibility: hidden;
+    letter-spacing: 1px;
+}
+
+.submit-btn{
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(193, 135, 248);
+    border: none;
+}
+
+.form-group.error input {
+    border-color: rgb(235 138 138);
+}
+
+.form-group.success input {
+    border-color: rgb(102, 246, 89);
+}
+
+.form-group.error small {
+    visibility: visible;
+}
+
+/* for EJS  */
+.success-msg{
+    margin-top: 10px;
+}
+
+.error-msg{
+    color: rgb(246, 100, 100);
+    margin-top: 10px;
+}
