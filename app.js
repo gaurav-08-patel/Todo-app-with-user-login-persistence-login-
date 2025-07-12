@@ -21,6 +21,9 @@ app.set("view engine", "ejs");
 
 let sessionStore = new MySQLStore(dbConfig);
 
+//setting proxy for render
+app.set('trust proxy', 1); // 👈 Add this before session middleware
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET,

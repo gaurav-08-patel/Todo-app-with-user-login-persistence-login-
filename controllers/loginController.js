@@ -19,6 +19,7 @@ const loginController = async (req, res) => {
     }
 
     req.session.userID = rows[0].id;
+    console.log("Session set:", req.session);
     res.redirect("/todo");
 };
 
