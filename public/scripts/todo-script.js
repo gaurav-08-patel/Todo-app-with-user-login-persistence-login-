@@ -25,7 +25,9 @@ submit.addEventListener("click", async (e) => {
             body: JSON.stringify({ text: `${value}` }),
         });
 
-        setPage();
+        
+        createList(`${parseInt(list.lastChild.getAttribute("data-id"))+1}`,value);
+
 
         groceryContainer.classList.add("show-container");
 
